@@ -12,22 +12,22 @@ import { selectPopularReddits } from "./popularRedditsSlice";
 export const PopularReddits = () => {
   const dispatch = useDispatch();
   const popularReddits = useSelector(selectPopularReddits);
-  //const { isLoading } = useSelector((state) => state.popularReddits);
+  const { isLoading } = useSelector((state) => state.popularReddits);
 
   /*const onAddFavoriteRecipeHandler = (recipe) => {
     dispatch(addFavoriteRecipe(recipe));
   };*/
 
-  /*if (isLoading) {
+  if (isLoading) {
     return <p>Loading...</p>;
   }
-  */
 
   return (
       <div className="reddits-container">
-          <p>{popularReddits}</p>
+        {popularReddits.map( (reddit) => {
+          return <p>{reddit['data'].title}</p>})
+        }
       </div>
-
   );
 
   /*

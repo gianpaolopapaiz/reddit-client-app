@@ -11,6 +11,7 @@ export const loadReddits = createAsyncThunk(
     const data = await fetch("https://www.reddit.com/r/popular.json");
     const json = await data.json();
     return json;
+    
   }
 );
 
@@ -28,7 +29,9 @@ const sliceOptions = {
     state.hasError = false;
    },
   [loadReddits.fulfilled]: (state, action) => {
-    state.reddits = action.payload;
+    state.reddits = action.payload.data.children;
+    console.log(action.payload);
+    console.log(action.payload.data.children[0]['data'].title);
     state.isLoading = false;
     state.hasError = false;
   },
@@ -41,7 +44,7 @@ const sliceOptions = {
 
 export const popularRedditsSlice = createSlice(sliceOptions);
 
-export const selectPopularReddits = (state) => state.reddits;
+export const selectPopularReddits = (state) => state.popularReddits.reddits;
 
 /*export const selectFilteredPopularReddits = (state) => {
   const popularReddits = selectPopularReddits(state);
