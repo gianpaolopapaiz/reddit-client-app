@@ -1,10 +1,15 @@
-import React from 'React';
+import React from 'react';
+import './NavBar.css';
 
-export default function NavBar() {
+export const NavBar = () => {
     return (
-        <header>
-            
-
+        <header id='nav-bar'>
+            <img 
+                id="nav-logo" 
+                src={`${process.env.PUBLIC_URL}/assets/reddit-icon.png`}  
+                alt=''
+            />
+            <p>Reddit Client App</p>
         </header>
-    )
+    );
 }
