@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectPopularReddits } from "./popularRedditsSlice";
+import { Reddit } from '../../components/Reddit/Reddit'
 //import FavoriteButton from "../../components/FavoriteButton";
 //import Reddits from "../../components/Recipe";
 //import { addFavoriteRecipe } from "../favoriteRecipes/favoriteRecipesSlice";
@@ -24,9 +25,9 @@ export const PopularReddits = () => {
 
   return (
       <div className="reddits-container">
-        {popularReddits.map( (reddit) => {
-          return <p>{reddit['data'].title}</p>})
-        }
+        <h2>Popular Reddits</h2>
+        {popularReddits.map( (reddit) => (
+          <Reddit reddit={reddit}/>))} 
       </div>
   );
 
