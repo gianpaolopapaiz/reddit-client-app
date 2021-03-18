@@ -1,9 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-/*import {
-  addFavoriteRecipe,
-  removeFavoriteRecipe,
-} from "../favoriteRecipes/favoriteRecipesSlice";
-import { selectSearchTerm } from "../search/searchSlice";*/
+import { selectSearchTerm } from "../searchBar/searchSlice";
 
 export const loadReddits = createAsyncThunk(
   "popularReddits/getPopularReddits",
@@ -11,7 +7,6 @@ export const loadReddits = createAsyncThunk(
     const data = await fetch("https://www.reddit.com/r/popular.json");
     const json = await data.json();
     return json;
-    
   }
 );
 

@@ -34,7 +34,7 @@ export const Search = () => {
                 onChange={onSearchChangeHandler}
                 placeholder="Search..."
             />
-            {searchTerm.length > 0 && (
+            {searchTerm !== '' && (
                 <button
                     onClick={onSearchTermClearHandler}
                     type="button"
