@@ -1,10 +1,15 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { selectSearchTerm } from "../searchBar/searchSlice";
 
 export const loadReddits = createAsyncThunk(
   "popularReddits/getPopularReddits",
-  async () => {
-    const data = await fetch("https://www.reddit.com/r/popular.json");
+  async (searchTerm) => {
+    let word = "r/popular.json";
+    let term = '';
+    if (searchTerm !== ''){
+      term = searchTerm.replace(' ','%20');
+      word = `search.json?q=${term}`;
+    }
+    const data = await fetch(`https://www.reddit.com/${word}`);
     const json = await data.json();
     return json;
   }
@@ -25,8 +30,6 @@ const sliceOptions = {
    },
   [loadReddits.fulfilled]: (state, action) => {
     state.reddits = action.payload.data.children;
-    console.log(action.payload);
-    console.log(action.payload.data.children[0]['data'].title);
     state.isLoading = false;
     state.hasError = false;
   },
@@ -38,16 +41,5 @@ const sliceOptions = {
 }
 
 export const popularRedditsSlice = createSlice(sliceOptions);
-
 export const selectPopularReddits = (state) => state.popularReddits.reddits;
-
-/*export const selectFilteredPopularReddits = (state) => {
-  const popularReddits = selectPopularReddits(state);
-  const searchTerm = selectSearchTerm(state);
-
-  return popularReddits.filter((reddit) =>
-    reddit.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-};*/
-
 export default popularRedditsSlice.reducer;
