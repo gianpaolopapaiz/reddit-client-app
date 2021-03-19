@@ -21,7 +21,7 @@ export const PopularReddits = () => {
       <div className="reddits-container">     
         <h2>{searchTerm === '' ? buttonSubreddit === ''? 'Popular Reddits' : `SubReddit: ${buttonSubreddit}` : `Search: ${searchTerm}`}</h2>
         {popularReddits.map( (reddit) => (
-          <Reddit reddit={reddit}/>))} 
+          <Reddit reddit={reddit} key={reddit.data.id}/>))} 
       </div>
   );
 };
