@@ -18,15 +18,12 @@ function App() {
   const buttonSubreddit = useSelector(selectButtonSubreddit);
 
   useEffect(() => {
-    console.log('INFO');
-    console.log(searchTerm);
-    console.log(buttonSubreddit);
     dispatch(loadReddits([searchTerm, buttonSubreddit]));
   }, [dispatch, searchTerm, buttonSubreddit]);
 
   useEffect(() => {
     dispatch(loadSubreddits());
-  },[]);
+  });
 
   return (
     <div className="App">
