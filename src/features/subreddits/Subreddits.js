@@ -16,7 +16,7 @@ export const Subreddits = () => {
   }
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <p>.</p>;
   }
     return (
       <div className="subreddits-outer-container">  
