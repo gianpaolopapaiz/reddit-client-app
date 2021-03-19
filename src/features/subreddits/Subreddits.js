@@ -25,7 +25,7 @@ export const Subreddits = () => {
         <h3>SubReddits</h3>
         <div className="subreddits-container">
             {subreddits.map( (subreddit) => (
-              <button id={subreddit.data.display_name_prefixed} onClick={onClickHandler}>
+              <button className='subreddits-button' id={subreddit.data.display_name_prefixed} onClick={onClickHandler}>
                 <Subreddit 
                   class='subreddit' 
                   subreddit={subreddit} 
