@@ -18,37 +18,8 @@ const sliceOptions = {
   }
 }
 
-/*const sliceOptions = {
-  name: "search",
-  initialState: {
-    searchInput: '',
-    isLoading: false,
-    hasError: false
-  },
-  reducers: {
-    setSearchTerm: (state, action) => {
-      return {
-        ...state,
-        searchInput: action.payload
-      }
-    },    
-    clearSearchTerm: (state) => {
-      return {
-        ...state,
-        searchInput: ""
-      }
-    }
-  },
-  extraReducers: {
-  }
-}*/
-
 
 export const searchSlice = createSlice(sliceOptions);
-
 export const { setSearchTerm, clearSearchTerm } = searchSlice.actions;
-
 export const selectSearchTerm = (state) => state.search;
-//export const selectSearchTerm = (state) => state.search.searchInput;
-
 export default searchSlice.reducer;

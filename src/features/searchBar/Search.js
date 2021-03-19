@@ -6,6 +6,7 @@ import {
   setSearchTerm,
 } from "./searchSlice";
 import './Search.css';
+import {setButtonSubreddit} from '../subreddits/subredditsSlice';
 
 
 const searchIconUrl = 'https://static-assets.codecademy.com/Courses/Learn-Redux/Recipes-App/icons/search.svg'
@@ -17,6 +18,7 @@ export const Search = () => {
 
   const onSearchChangeHandler = (e) => {
     dispatch(setSearchTerm(e.target.value));
+    dispatch(setButtonSubreddit(''));
   };
 
   const onSearchTermClearHandler = () => {

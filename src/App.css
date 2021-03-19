@@ -22,9 +22,21 @@
   font-size: calc(10px + 2vmin);
 }
 
+
+main {
+  display: flex; 
+}
+
 .App-link {
   color: rgb(112, 76, 182);
 }
+
+@media only screen and (max-width: 740px) {
+  main {
+    flex-wrap: wrap-reverse;
+  }
+}
+
 
 @keyframes App-logo-float {
   0% {
@@ -37,3 +49,5 @@
     transform: translateY(0px)
   }
 }
+
+

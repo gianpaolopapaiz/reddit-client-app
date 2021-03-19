@@ -8,10 +8,6 @@
     box-shadow: 2px 2px 2px 2px rgb(209, 208, 208);
 }
 
-.reddit:hover {
-    box-shadow: 3px 3px 3px 3px rgb(200, 200, 200);
-}
-
 .reddit-img {
     max-width: 100%;
 }
@@ -35,7 +31,7 @@
 }
 
 .reddit-author-link:hover {
-    text-decoration-style:dashed ;
+    text-decoration:underline ;
 }
 
 .reddit-comments {
@@ -46,6 +42,7 @@
 
 .reddit-button {
     text-decoration: none;
+    border: #FF4500 2px solid;
     background-color: #FF4500;
     border-radius: 10px;
     padding: 3px 10px;
@@ -56,5 +53,7 @@
 }
 
 .reddit-button:hover {
-
+    border: #FF4500 2px solid;
+    background-color: white;
+    color: #FF4500;
 }

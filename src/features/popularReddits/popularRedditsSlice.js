@@ -2,13 +2,22 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 export const loadReddits = createAsyncThunk(
   "popularReddits/getPopularReddits",
-  async (searchTerm) => {
+  async ([searchTerm, buttonSubreddit]) => {
+    console.log('DENTRO DO ASYNC');
+    console.log(searchTerm);
+    console.log(buttonSubreddit);
     let word = "r/popular.json";
     let term = '';
-    if (searchTerm !== ''){
-      term = searchTerm.replace(' ','%20');
-      word = `search.json?q=${term}`;
+    if (buttonSubreddit === ''){
+      if (searchTerm !== ''){
+        term = searchTerm.replace(' ','%20');
+        word = `search.json?q=${term}`;
+      } 
+    } else {
+      console.log('if subreddit');
+      word = `${buttonSubreddit}.json`;
     }
+    console.log(`https://www.reddit.com/${word}`);
     const data = await fetch(`https://www.reddit.com/${word}`);
     const json = await data.json();
     return json;
