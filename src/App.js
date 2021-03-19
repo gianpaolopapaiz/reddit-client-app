@@ -13,7 +13,7 @@ import {Subreddits} from './features/subreddits/Subreddits';
 
 function App() {
   const dispatch = useDispatch();
-  const { hasError } = useSelector((state) => state.popularReddits);
+  //const { hasError } = useSelector((state) => state.popularReddits);
   const searchTerm = useSelector(selectSearchTerm);
   const buttonSubreddit = useSelector(selectButtonSubreddit);
 
@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
     dispatch(loadSubreddits());
-  }, []);
+  },[]);
 
   return (
     <div className="App">

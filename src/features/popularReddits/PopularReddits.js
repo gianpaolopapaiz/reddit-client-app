@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectPopularReddits } from "./popularRedditsSlice";
 import {selectSearchTerm} from "../searchBar/searchSlice";
 import { Reddit } from '../../components/Reddit/Reddit'
@@ -7,7 +7,6 @@ import './PopularReddits.css';
 import {selectButtonSubreddit} from "../subreddits/subredditsSlice";
 
 export const PopularReddits = () => {
-  const dispatch = useDispatch();
   const popularReddits = useSelector(selectPopularReddits);
   const { isLoading } = useSelector((state) => state.popularReddits);
   const searchTerm = useSelector(selectSearchTerm);
